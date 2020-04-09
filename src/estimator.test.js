@@ -140,7 +140,7 @@ test('getCasesForVentilatorsByRequestedTime function from challenge 3', () => {
 
 test('getDollarsInFlight function from challenge 3', () => {
   expect(dollarsInFlight).toStrictEqual({
-    impact: 1908480,
-    severeImpact: 9542400
+    impact: 4327,
+    severeImpact: 21638
   });
 });

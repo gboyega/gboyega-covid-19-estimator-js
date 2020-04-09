@@ -26,7 +26,7 @@ const getDollarsInFlight = (
   const { avgDailyIncomeInUSD, avgDailyIncomePopulation } = regionalData;
 
   const inflight = (infections) => (
-    infections * avgDailyIncomePopulation * avgDailyIncomeInUSD * time);
+    (infections * avgDailyIncomePopulation * avgDailyIncomeInUSD) / time);
 
   return {
     impact: Math.trunc(inflight(infectionsByRequestedTime.impact)),

@@ -1,4 +1,7 @@
-const currentlyInfected = (reportedCases) =>({ impact: reportedCases * 10, severeImpact: reportedCases * 50 });
+const currentlyInfected = (reportedCases) => ({
+  impact: reportedCases * 10,
+  severeImpact: reportedCases * 50
+});
 
 const infectionsByRequestedTime = (
   infected,

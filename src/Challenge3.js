@@ -29,8 +29,8 @@ const getDollarsInFlight = (
     infections * avgDailyIncomePopulation * avgDailyIncomeInUSD * time);
 
   return {
-    impact: Math.trunc(inflight(infectionsByRequestedTime.impact)),
-    severeImpact: Math.trunc(inflight(infectionsByRequestedTime.severeImpact))
+    impact: inflight(infectionsByRequestedTime.impact),
+    severeImpact: inflight(infectionsByRequestedTime.severeImpact)
   };
 };
 

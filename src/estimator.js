@@ -1,5 +1,11 @@
-import { getCurrentlyInfected, getInfectionsByRequestedTime } from './Challenge1';
-import { getSevereCasesByRequestedTime, getHospitalBedsByRequestedTime } from './Challenge2';
+import {
+  getCurrentlyInfected,
+  getInfectionsByRequestedTime
+} from './Challenge1';
+import {
+  getSevereCasesByRequestedTime,
+  getHospitalBedsByRequestedTime
+} from './Challenge2';
 
 const covid19ImpactEstimator = (data) => {
   const {
@@ -15,11 +21,15 @@ const covid19ImpactEstimator = (data) => {
   const infectionsByRequestedTime = getInfectionsByRequestedTime(
     currentlyInfected,
     periodType,
-    timeToElapse);
-  const severeCasesByRequestedTime = getSevereCasesByRequestedTime(infectionsByRequestedTime);
+    timeToElapse
+  );
+  const severeCasesByRequestedTime = getSevereCasesByRequestedTime(
+    infectionsByRequestedTime
+  );
   const hospitalBedsByRequestedTime = getHospitalBedsByRequestedTime(
-    severeCasesByRequestedTime, 
-    totalHospitalBeds);
+    severeCasesByRequestedTime,
+    totalHospitalBeds
+  );
 
   return {
     data, // the input data

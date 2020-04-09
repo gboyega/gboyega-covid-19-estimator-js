@@ -1,4 +1,7 @@
-const getSevereCasesByRequestedTime = (infections) => ({ impact: (0.15 * infections.impact), severeImpact: (0.15 * infections.severeImpact) });
+const getSevereCasesByRequestedTime = (infections) => ({
+  impact: 0.15 * infections.impact,
+  severeImpact: 0.15 * infections.severeImpact
+});
 
 const getHospitalBedsByRequestedTime = (
   severeCasesByRequestedTime,

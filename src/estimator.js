@@ -36,9 +36,13 @@ const covid19ImpactEstimator = (data) => {
     severeCasesByRequestedTime,
     totalHospitalBeds
   );
-  const casesForICUByRequestedTime = getCasesForICUByRequestedTime(infectionsByRequestedTime);
+  const casesForICUByRequestedTime = getCasesForICUByRequestedTime(
+    infectionsByRequestedTime
+  );
 
-  const casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime(infectionsByRequestedTime);
+  const casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime(
+    infectionsByRequestedTime
+  );
 
   const dollarsInFlight = getDollarsInFlight(
     infectionsByRequestedTime,
@@ -55,7 +59,7 @@ const covid19ImpactEstimator = (data) => {
       severeCasesByRequestedTime: severeCasesByRequestedTime.impact,
       hospitalBedsByRequestedTime: hospitalBedsByRequestedTime.impact,
       casesForICUByRequestedTime: casesForICUByRequestedTime.impact,
-      casesForVentilatorsByRequestedTime: casesForVentilatorsByRequestedTime.impact,
+      casesForVentilatorsByRequestedTime:casesForVentilatorsByRequestedTime.impact,
       dollarsInFlight: dollarsInFlight.impact
     }, // best case estimation
     severeImpact: {

@@ -127,14 +127,14 @@ test('getHospitalBedsByRequestedTime function from Challenge 2', () => {
 test('getCasesForICUByRequestedTime function from challenge 3', () => {
   expect(casesForICUByRequestedTime).toStrictEqual({
     impact: 1280,
-    severeImpact: 6400 
+    severeImpact: 6400
   });
 });
 
 test('getCasesForVentilatorsByRequestedTime function from challenge 3', () => {
   expect(casesForVentilatorsByRequestedTime).toStrictEqual({
     impact: 512,
-    severeImpact: 2560 
+    severeImpact: 2560
   });
 });
 

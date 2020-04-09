@@ -1,12 +1,7 @@
-const currentlyInfected = reportedCases => {
-  return {
-    impact: reportedCases * 10,
-    severeImpact: reportedCases * 50
-  };
-};
+const currentlyInfected = (reportedCases) =>({ impact: reportedCases * 10, severeImpact: reportedCases * 50 });
 
 const infectionsByRequestedTime = (
-  currentlyInfected,
+  infected,
   periodType,
   timeToElapse
 ) => {
@@ -19,8 +14,8 @@ const infectionsByRequestedTime = (
     factor = Math.trunc((timeToElapse * 30) / 3);
   }
 
-  const impact = currentlyInfected.impact * (2 ** factor);
-  const severeImpact = currentlyInfected.severeImpact * (2 ** factor);
+  const impact = infected.impact * (2 ** factor);
+  const severeImpact = infected.severeImpact * (2 ** factor);
 
   return {
     impact,

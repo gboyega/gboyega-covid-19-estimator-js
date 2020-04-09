@@ -1,13 +1,13 @@
 import { currentlyInfected, infectionsByRequestedTime } from './Challenge1';
 
-const covid19ImpactEstimator = data => {
+const covid19ImpactEstimator = (data) => {
   const {
-    region,
+    // region,
     periodType,
     timeToElapse,
     reportedCases,
-    population,
-    totalHospitalBeds
+    // population,
+    // totalHospitalBeds
   } = data;
 
   const infected = currentlyInfected(reportedCases);

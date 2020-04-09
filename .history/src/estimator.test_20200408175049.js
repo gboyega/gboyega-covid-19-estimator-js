@@ -1,1 +1,0 @@
-import currentlyInfected from 

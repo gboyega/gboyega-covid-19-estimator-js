@@ -1,12 +1,15 @@
 import { getCurrentlyInfected, getInfectionsByRequestedTime } from './Challenge1';
+
 import {
   getSevereCasesByRequestedTime,
   getHospitalBedsByRequestedTime
 } from './Challenge2';
+
 const currentlyInfected = getCurrentlyInfected(20);
 const infectionsByRequestedTime = getInfectionsByRequestedTime(currentlyInfected, 'weeks', 3);
 const severeCasesByRequestedTime = getSevereCasesByRequestedTime(infectionsByRequestedTime);
-const hospitalBedsByRequestedTime = getHospitalBedsByRequestedTime(severeCasesByRequestedTime, 12000)
+const hospitalBedsByRequestedTime = getHospitalBedsByRequestedTime(
+  severeCasesByRequestedTime, 12000);
 
 console.log(currentlyInfected);
 console.log(infectionsByRequestedTime);

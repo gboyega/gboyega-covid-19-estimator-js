@@ -12,9 +12,14 @@ const covid19ImpactEstimator = (data) => {
   } = data;
 
   const currentlyInfected = getCurrentlyInfected(reportedCases);
-  const infectionsByRequestedTime = getInfectionsByRequestedTime(currentlyInfected, periodType, timeToElapse);
+  const infectionsByRequestedTime = getInfectionsByRequestedTime(
+    currentlyInfected,
+    periodType,
+    timeToElapse);
   const severeCasesByRequestedTime = getSevereCasesByRequestedTime(infectionsByRequestedTime);
-  const hospitalBedsByRequestedTime = getHospitalBedsByRequestedTime(severeCasesByRequestedTime, totalHospitalBeds);
+  const hospitalBedsByRequestedTime = getHospitalBedsByRequestedTime(
+    severeCasesByRequestedTime, 
+    totalHospitalBeds);
 
   return {
     data, // the input data

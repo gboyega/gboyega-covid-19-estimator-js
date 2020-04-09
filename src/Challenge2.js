@@ -7,10 +7,10 @@ const getHospitalBedsByRequestedTime = (
   severeCasesByRequestedTime,
   totalHospitalBeds
 ) => {
-  const usableBeds = Math.trunc(0.35 * totalHospitalBeds);
+  const usableBeds = 0.35 * totalHospitalBeds;
   return {
-    impact: usableBeds - severeCasesByRequestedTime.impact,
-    severeImpact: usableBeds - severeCasesByRequestedTime.severeImpact
+    impact: Math.trunc(usableBeds - severeCasesByRequestedTime.impact),
+    severeImpact: Math.trunc(usableBeds - severeCasesByRequestedTime.severeImpact)
   };
 };
 

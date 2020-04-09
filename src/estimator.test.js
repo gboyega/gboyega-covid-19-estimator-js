@@ -10,18 +10,47 @@ import {
   getHospitalBedsByRequestedTime
 } from './Challenge2';
 
+import {
+  getCasesForICUByRequestedTime,
+  getCasesForVentilatorsByRequestedTime,
+  getDollarsInFlight
+} from './Challenge3';
+
 const currentlyInfected = getCurrentlyInfected(20);
+
 const infectionsByRequestedTime = getInfectionsByRequestedTime(
   currentlyInfected,
   'weeks',
   3
 );
+
 const severeCasesByRequestedTime = getSevereCasesByRequestedTime(
   infectionsByRequestedTime
 );
+
 const hospitalBedsByRequestedTime = getHospitalBedsByRequestedTime(
   severeCasesByRequestedTime,
   12000
+);
+
+const casesForICUByRequestedTime = getCasesForICUByRequestedTime(
+  infectionsByRequestedTime
+);
+
+const casesForVentilatorsByRequestedTime = getCasesForVentilatorsByRequestedTime(
+  infectionsByRequestedTime
+);
+
+const dollarsInFlight = getDollarsInFlight(
+  infectionsByRequestedTime,
+  {
+    name: 'Africa',
+    avgAge: 19.7,
+    avgDailyIncomeInUSD: 5,
+    avgDailyIncomePopulation: 0.71
+  },
+  3,
+  'weeks'
 );
 
 console.log(
@@ -39,10 +68,15 @@ console.log(
     totalHospitalBeds: 1380614
   })
 );
-console.log(currentlyInfected);
-console.log(infectionsByRequestedTime);
-console.log(severeCasesByRequestedTime);
-console.log(hospitalBedsByRequestedTime);
+console.log(
+  { currentlyInfected },
+  { infectionsByRequestedTime },
+  { severeCasesByRequestedTime },
+  { hospitalBedsByRequestedTime },
+  { casesForICUByRequestedTime },
+  { casesForVentilatorsByRequestedTime },
+  { dollarsInFlight }
+);
 
 test('getCurrentlyInfected function from Challenge1', () => {
   expect(currentlyInfected).toStrictEqual({
@@ -87,5 +121,26 @@ test('getHospitalBedsByRequestedTime function from Challenge 2', () => {
   expect(hospitalBedsByRequestedTime).toStrictEqual({
     impact: 360,
     severeImpact: -15000
+  });
+});
+
+test('getCasesForICUByRequestedTime function from challenge 3', () => {
+  expect(casesForICUByRequestedTime).toStrictEqual({
+    impact: 1280,
+    severeImpact: 6400 
+  });
+});
+
+test('getCasesForVentilatorsByRequestedTime function from challenge 3', () => {
+  expect(casesForVentilatorsByRequestedTime).toStrictEqual({
+    impact: 512,
+    severeImpact: 2560 
+  });
+});
+
+test('getDollarsInFlight function from challenge 3', () => {
+  expect(dollarsInFlight).toStrictEqual({
+    impact: 1908480,
+    severeImpact: 9542400
   });
 });

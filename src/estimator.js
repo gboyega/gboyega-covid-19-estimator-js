@@ -59,7 +59,7 @@ const covid19ImpactEstimator = (data) => {
       severeCasesByRequestedTime: severeCasesByRequestedTime.impact,
       hospitalBedsByRequestedTime: hospitalBedsByRequestedTime.impact,
       casesForICUByRequestedTime: casesForICUByRequestedTime.impact,
-      casesForVentilatorsByRequestedTime:casesForVentilatorsByRequestedTime.impact,
+      casesForVentilatorsByRequestedTime: casesForVentilatorsByRequestedTime.impact,
       dollarsInFlight: dollarsInFlight.impact
     }, // best case estimation
     severeImpact: {

@@ -1,26 +1,34 @@
-import { currentlyInfected, infectionsByRequestedTime } from './Challenge1';
+import { getCurrentlyInfected, getInfectionsByRequestedTime } from './Challenge1';
+import { getSevereCasesByRequestedTime, getHospitalBedsByRequestedTime } from './Challenge2';
 
 const covid19ImpactEstimator = (data) => {
   const {
     // region,
     periodType,
     timeToElapse,
-    reportedCases
+    reportedCases,
     // population,
-    // totalHospitalBeds
+    totalHospitalBeds
   } = data;
 
-  const infected = currentlyInfected(reportedCases);
-  const infectionsByDate = infectionsByRequestedTime(infected, periodType, timeToElapse);
+  const currentlyInfected = getCurrentlyInfected(reportedCases);
+  const infectionsByRequestedTime = getInfectionsByRequestedTime(currentlyInfected, periodType, timeToElapse);
+  const severeCasesByRequestedTime = getSevereCasesByRequestedTime(infectionsByRequestedTime);
+  const hospitalBedsByRequestedTime = getHospitalBedsByRequestedTime(severeCasesByRequestedTime, totalHospitalBeds);
+
   return {
-    data, // the input data you got
+    data, // the input data
     impact: {
-      currentlyInfected: infected.impact,
-      infectionsByRequestedTime: infectionsByDate.impact
+      currentlyInfected: currentlyInfected.impact,
+      infectionsByRequestedTime: infectionsByRequestedTime.impact,
+      severeCasesByRequestedTime: severeCasesByRequestedTime.impact,
+      hospitalBedsByRequestedTime: hospitalBedsByRequestedTime.impact
     }, // best case estimation
     severeImpact: {
-      currentlyInfected: infected.severeImpact,
-      infectionsByRequestedTime: infectionsByDate.severeImpact
+      currentlyInfected: currentlyInfected.severeImpact,
+      infectionsByRequestedTime: infectionsByRequestedTime.severeImpact,
+      severeCasesByRequestedTime: severeCasesByRequestedTime.severeImpact,
+      hospitalBedsByRequestedTime: hospitalBedsByRequestedTime.severeImpact
     } // severe case estimation
   };
 };

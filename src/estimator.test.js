@@ -68,15 +68,6 @@ console.log(
     totalHospitalBeds: 678874
   })
 );
-console.log(
-  { currentlyInfected },
-  { infectionsByRequestedTime },
-  { severeCasesByRequestedTime },
-  { hospitalBedsByRequestedTime },
-  { casesForICUByRequestedTime },
-  { casesForVentilatorsByRequestedTime },
-  { dollarsInFlight }
-);
 
 test('getCurrentlyInfected function from Challenge1', () => {
   expect(currentlyInfected).toStrictEqual({
